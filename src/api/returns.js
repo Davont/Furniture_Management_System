@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-const api = 'http://localhost:3000'
+const api = 'http://47.98.33.249:3000'
 /**
  * 退货订单api
  */

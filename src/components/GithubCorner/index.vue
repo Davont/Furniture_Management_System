@@ -1,6 +1,6 @@
 <template>
   <a
-    href="https://github.com/Davont"
+    href="https://github.com/Davont/Furniture_Management_System"
     target="_blank"
     class="github-corner"
     aria-label="View source on Github"

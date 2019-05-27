@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-const api = 'http://localhost:3000'
+const api = 'http://47.98.33.249:3000'
 /**
  *
  * 登录api
@@ -71,6 +71,13 @@ export function updateUsers(data) {
 export function updateUsersTotal(data) {
   return request({
     url: api + '/updateUsersTotal/' + data.id,
+    method: 'post',
+    data
+  })
+}
+export function returnsUsersTotal(data) {
+  return request({
+    url: api + '/returnsUsersTotal/' + data.id,
     method: 'post',
     data
   })

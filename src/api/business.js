@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-const api = 'http://localhost:3000'
+const api = 'http://47.98.33.249:3000'
 
 
 export function businessList() {
@@ -34,6 +34,13 @@ export function updateBusiness(data) {
 export function updateBusinessTotal(data) {
   return request({
     url: api + '/updateBusinessTotal/' + data.id,
+    method: 'post',
+    data
+  })
+}
+export function returnsBusinessTotal(data) {
+  return request({
+    url: api + '/returnsBusinessTotal/' + data.id,
     method: 'post',
     data
   })

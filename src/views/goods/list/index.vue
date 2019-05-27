@@ -15,7 +15,7 @@
       </el-table-column>
       <el-table-column label="商品图片" width="250" align="center">
         <template slot-scope="scope">
-          <img style="height: 120px; width:200px" :src="getImgUrl(scope.row.goods_image)">
+          <img style="height: 250px; width:220px" :src="getImgUrl(scope.row.goods_image)">
         </template>
       </el-table-column>
 
@@ -100,7 +100,7 @@
         <el-form-item label="图片上传" prop="goods_image">
           <el-upload
             class="upload-demo"
-            action="http://localhost:3000/upload"
+            action="http://47.98.33.249:3000/upload"
             name="file"
             :on-preview="handlePreview"
             :on-remove="handleRemove"
@@ -185,7 +185,6 @@ export default {
         this.list = response.data;
         this.total = response.data.length;
         this.listLoading = false;
-        console.log(this.list);
       });
     },
     findIndex(arr, value) {
@@ -195,7 +194,7 @@ export default {
       return index;
     },
     getImgUrl(imgValue) {
-      return "http://localhost:3000/" + imgValue;
+      return "http://47.98.33.249:3000/" + imgValue;
     },
     handleUpdate(row) {
       this.temp = Object.assign({}, row); // copy obj
@@ -261,7 +260,7 @@ export default {
               type: "error"
             });
           }
-          console.log(tempData);
+
           if (tempData.id) {
             updateGoods({
               id: tempData.id,

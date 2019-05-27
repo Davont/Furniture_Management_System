@@ -164,8 +164,18 @@ import {
   deleteOrder,
   updateOrderStatus
 } from "@/api/order";
-import { usersList, getUsers, updateUsersTotal } from "@/api/user";
-import { businessList, getBusiness, updateBusinessTotal } from "@/api/business";
+import {
+  usersList,
+  getUsers,
+  updateUsersTotal,
+  returnsUsersTotal
+} from "@/api/user";
+import {
+  businessList,
+  getBusiness,
+  updateBusinessTotal,
+  returnsBusinessTotal
+} from "@/api/business";
 import { goodsList } from "@/api/goods";
 import { createReturns } from "@/api/returns";
 import waves from "@/directive/waves"; // waves directive
@@ -304,23 +314,31 @@ export default {
       this.orderTotalPrice = total;
     },
     returnsSubmit() {
-      console.log(this.$refs["returnsForm"]);
       this.$refs["returnsForm"].validate(valid => {
-        console.log(valid);
         if (valid) {
           this.returnRows.buttonDisabled = true; /*只能退一次货 */
           let row = this.returnRows;
+          console.log(row);
           status = "退货中";
           createReturns({
             order_id: row.id,
             returns_reason: row.returnReasons
           }).then(res => {
-            console.log(res);
-            console.log(this.returnRows);
             updateOrderStatus({
               id: row.id,
               order_status: status
             }).then(res => {
+              let array = row.order_goods.goods;
+              array.forEach(element => {
+                returnsBusinessTotal({
+                  id: element.business_id,
+                  returns_total: element.price
+                }).then(res => {});
+              });
+              returnsUsersTotal({
+                id: row.users_id,
+                returns_total: row.order_totals
+              }).then(res => {});
               if (res.code == 200) {
                 this.$message({
                   message: "操作成功",
@@ -471,7 +489,6 @@ export default {
     },
     handleFetchPv(row) {
       this.goodsData = row.order_goods.goods;
-      console.log(row);
       this.dialogPvVisible = true;
     }
   }

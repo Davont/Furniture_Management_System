@@ -24,7 +24,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column width="120px" align="center" label="用户账号">
+      <el-table-column width="180px" align="center" label="用户账号">
         <template slot-scope="scope">
           <span>{{ scope.row.users_email }}</span>
         </template>
@@ -104,14 +104,12 @@ export default {
             id: element.order_id
           }).then(res => {
             getUsers(res.data.users_id).then(res => {
-              console.log(this.list);
               this.list.forEach(element => {
                 this.$set(element, "users_email", res.data.users_email);
               });
             });
           });
         });
-        console.log(this.list);
       });
     },
     handleDelete(row) {

@@ -1,8 +1,8 @@
 {
   "name": "Furniture_Management_System",
-  "version": "4.1.0",
-  "description": "a furniture management system",
-  "author": "hanyu zhang",
+  "version": "1.0.0",
+  "description": "A Furniture Management System",
+  "author": "hanyu Zhang",
   "license": "MIT",
   "scripts": {
     "dev": "vue-cli-service serve",

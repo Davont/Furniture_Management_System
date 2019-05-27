@@ -5,6 +5,7 @@ const sequelize = new Sequelize('koasql', 'root', '981417972zhy@', {
     dialect: 'mysql',
     operatorsAliases: false,
     dialectOptions: {
+	charset: "utf8",
         dateStrings: true,
         typeCast(field, next) {
             // for reading from database
@@ -14,7 +15,10 @@ const sequelize = new Sequelize('koasql', 'root', '981417972zhy@', {
             return next();
         }
     },
-
+     define: {
+            'underscored': true,
+            'charset':'utf8mb4'
+        },
     pool: {
         max: 5,
         min: 0,

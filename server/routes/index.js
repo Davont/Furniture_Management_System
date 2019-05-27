@@ -10,6 +10,10 @@ var upload = require('../utils/upload');
 const router = new Router({
   prefix: ''
 });
+router.get('/', async (ctx) => {
+  await ctx.render('dist/index')
+})
+
 /**
  * 登录权限接口
  */
@@ -26,6 +30,7 @@ router.post('/users', UsersController.create);
 router.post('/users/:id', UsersController.update);
 router.post('/deleteUsers/:id', UsersController.delete);
 router.post('/updateUsersTotal/:id', UsersController.updateUsersTotal);
+router.post('/returnsUsersTotal/:id', UsersController.returnsUsersTotal);
 // 获取用户详情接口（路由）
 router.get('/getUsersDetail/:id', UsersController.detail);
 router.get('/getUsersDetail/', UsersController.detail);
@@ -37,6 +42,7 @@ router.get('/getUsersDetail/', UsersController.detail);
 router.post('/business', BusinessController.create);
 router.post('/business/:id', BusinessController.update);
 router.post('/updateBusinessTotal/:id', BusinessController.updateBusinessTotal);
+router.post('/returnsBusinessTotal/:id', BusinessController.returnsBusinessTotal);
 router.post('/deleteBusiness/:id', BusinessController.delete);
 // 获取商户详情接口（路由）
 router.get('/getBusinessDetail/:id', BusinessController.detail);

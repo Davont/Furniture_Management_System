@@ -92,10 +92,6 @@ export default {
           total += element.business_revenues;
         });
         vm.businessRevenues = total;
-        console.log(vm.usersNum);
-        console.log(vm.businessNum);
-        console.log(vm.usersConsumption);
-        console.log(vm.businessRevenues);
       });
     });
   },

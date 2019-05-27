@@ -8,7 +8,6 @@
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
       <div id="business" style="height:500px"></div>
     </el-row>
-    <div class="dashboard-text">name:</div>
   </div>
 </template>
 
@@ -19,7 +18,6 @@ import { businessList } from "@/api/business";
 import GithubCorner from "@/components/GithubCorner";
 import PanelGroup from "./components/PanelGroup";
 import echarts from "echarts";
-require("@/utils/macarons"); // echarts theme
 export default {
   name: "Dashboard",
   components: {
@@ -32,7 +30,6 @@ export default {
       document.getElementById("business"),
       "macarons"
     );
-    console.log(document.getElementById("users"));
     usersList().then(res => {
       let array = res.data;
       let nameArr = [];
@@ -98,14 +95,14 @@ export default {
                     return colorList[params.dataIndex];
                   }, //以下为是否显示，显示位置和显示格式的设置了
                   label: {
-                    show: true,
+                    show: false,
                     position: "top",
                     //                             formatter: '{c}'
                     formatter: "{b}\n{c}"
                   }
                 }
               }, //设置柱的宽度，要是数据太少，柱子太宽不美观~
-              barWidth: 70
+              barWidth: 50
             }
           ]
         });
@@ -176,14 +173,14 @@ export default {
                     return colorList[params.dataIndex];
                   }, //以下为是否显示，显示位置和显示格式的设置了
                   label: {
-                    show: true,
+                    show: false,
                     position: "top",
                     //                             formatter: '{c}'
                     formatter: "{b}\n{c}"
                   }
                 }
               }, //设置柱的宽度，要是数据太少，柱子太宽不美观~
-              barWidth: 70
+              barWidth: 50
             }
           ]
         });

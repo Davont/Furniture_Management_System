@@ -36,7 +36,7 @@
       <el-form-item label="图片上传" prop="goods_image">
         <el-upload
           class="upload-demo"
-          action="http://localhost:3000/upload"
+          action="http://47.98.33.249:3000/upload"
           name="file"
           :on-preview="handlePreview"
           :on-remove="handleRemove"
