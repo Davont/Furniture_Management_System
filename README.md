@@ -2,7 +2,7 @@
 
 > 提供家具购买、下单、用户管理、订单管理、商户管理等功能.~~（实际上是大型数据库作业）~~
 
-**Live demo:** http://panjiachen.github.io/vue-admin-template
+**Live demo:** http://47.98.33.249:9528/
 
 ## 技术栈
 
